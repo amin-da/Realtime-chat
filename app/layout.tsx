@@ -4,6 +4,8 @@ import "./globals.css";
 import ConvexClientProviders from "@/providers/ConvexClientProviders";
 import { ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import LoadingLogo from "@/components/shared/LoadingLogo";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/components/ui/theme/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +22,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConvexClientProviders>
-          <ClerkLoading>
-            <LoadingLogo />
-          </ClerkLoading>
-          <ClerkLoaded>{children}</ClerkLoaded>
-        </ConvexClientProviders>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ConvexClientProviders>
+            <ClerkLoading>
+              <LoadingLogo />
+            </ClerkLoading>
+            <ClerkLoaded>
+              <TooltipProvider>{children}</TooltipProvider>
+            </ClerkLoaded>
+          </ConvexClientProviders>
+        </ThemeProvider>
       </body>
     </html>
   );
