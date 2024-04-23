@@ -6,6 +6,7 @@ import { ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import LoadingLogo from "@/components/shared/LoadingLogo";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ui/theme/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
             </ClerkLoading>
             <ClerkLoaded>
               <TooltipProvider>{children}</TooltipProvider>
+              <Toaster richColors />
             </ClerkLoaded>
           </ConvexClientProviders>
         </ThemeProvider>
