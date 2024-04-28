@@ -33,6 +33,7 @@ const ImagePreview = ({ urls }: Props) => {
           <Dialog key={index}>
             <div
               className={cn("relative cursor-pointer", {
+                // if is not video
                 "w-28 h-28 max-w-full": !isVideo,
               })}
             >

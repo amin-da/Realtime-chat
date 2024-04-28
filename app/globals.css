@@ -83,3 +83,6 @@ body {
     scrollbar-width: none;
   }
 }
+
+
+@import "~@uploadthing/react/styles.css";
