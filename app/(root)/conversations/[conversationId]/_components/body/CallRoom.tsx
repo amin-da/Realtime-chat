@@ -35,7 +35,7 @@ export const CallRoom = ({ audio, video, handleDisconnect }: CallRoomProps) => {
         const res = await fetch(
           `/api/livekit?room=${conversationId}&username=${
             user.fullName
-          } (${Math.floor(Math.random() * 2000)})`
+          } (${Math.floor(Math.random() * 3000)})`
         );
         const data = await res.json();
 
